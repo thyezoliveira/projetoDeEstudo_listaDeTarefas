@@ -1,9 +1,14 @@
+import { Tarefa } from './modules/Tarefa.js';
+import { Remove } from './modules/Remove.js';
+
 /* 
 Comentário: O app é basicamente funcional.
             é possível adicionar e remover tarefas da lista.
             Minha lógica pode ser um pouco confusa mas irei comentar e
             retrabalhar para deixar mais simples possivel.
 */
+
+
 
 // Seleção do campo de texto
 const inputTask = document.querySelector(".inputTask");
@@ -14,9 +19,6 @@ const inputTaskBtn = document.querySelector(".inputTaskBtn");
 //Seleção da lista (ul) de notas
 const tasks = document.querySelector(".tasks");
 
-// Numero da nota
-let taskNumber = 0;
-
 //Ao clicar no botão, inserir nota na lista de notas
 inputTaskBtn.onclick = insertTask;
 
@@ -25,63 +27,27 @@ inputTask.addEventListener("keypress", insertTaskWithEnter);
 
 // Função de inserir nota
 function insertTask(){
-
-    // Cria o elemento "list item" que irá representar a tarefa
-    let li = document.createElement("li");
-
-    //Cria o botão que remove essa tarefa
-    let delBtn = document.createElement("button");
-
-    //Acrescenta um texto dentro da tag li, e o texto foi recebido pela função "receiveText()"
-    li.innerHTML = `<p>${receiveText()}</p>`;
-
-    //Adiciona a classe "task" na tag li da tarefa
-    li.classList.add("task");
-
-    //Adiciona um ID a tag li e define o valor dela para "task" mais o numero da nota
-    li.setAttribute("id", "task" + taskNumber);
-
-    //Acrescenta um texto no botão que remove a nota
-    delBtn.appendChild(document.createTextNode(" Remover "));
-
-    //Define o ID do botão de remover nota como a string abaixo mais o numero da tarefa
-    delBtn.setAttribute("id", "removeTaskBtn" + taskNumber);
-
-    //Adiciona uma classe no botão.
-    delBtn.classList.add("removeTaskBtn");
-
-    //Adiciona o botão no list item
-    li.appendChild(delBtn);
-
-    //Adiciona o list item que é nossa tarefa em "tasks" que é a ul que lista todas as tarefas
-    tasks.appendChild(li);
-
-    //Aciona a função indicada a baixo usando como parametro o o numero da tarefa
-    activateRemoveEvent(taskNumber);
-
-    //Aumenta a variavel que conta o numero de tarefas
-    taskNumber++;
-
-    //Apaga o campo input
-    inputTask.value = "";
-
-    //Ativa o foco do campo input
-    inputTask.focus();
-}
-
-//Função que recebe o texto do campo input
-function receiveText(){
-
-    //Criar uma variavel que recebe como valor, o valor do campo input
-    let textValue = inputTask.value;
-
-    //Retorna o valor da variavel como uma string para uso externo
-    return textValue;
-
+    if(inputTask.value == ''){
+        return;
+    }else{
+        let tarefa = new Tarefa(inputTask, tasks);
+        tarefa.inserir();
+        console.log(tarefa);
+    
+        //Aciona a função indicada a baixo usando como parametro o o numero da tarefa
+        activateRemoveEvent(tarefa.num);
+    
+        //Apaga o campo input
+        inputTask.value = "";
+    
+        //Ativa o foco do campo input
+        inputTask.focus();
+    }
 }
 
 // Função que remove a tarefa da lista de tarefas
 function removeTask(event){
+
 
     //Pega o ID do botão e poe ele na variavel
     let btnX = event.target.id;
