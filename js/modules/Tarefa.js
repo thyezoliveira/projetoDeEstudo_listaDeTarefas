@@ -8,8 +8,8 @@ export class Tarefa {
         this._alvo = alvo;
     }
 
-    get num(){
-        return this._numero;
+    get lista(){
+        return this._alvo;
     }
 
     template(){
@@ -19,10 +19,6 @@ export class Tarefa {
                 Remover
             </butto>
         `
-    }
-
-    get lista(){
-        return this._alvo;
     }
 
     criaElemento(){
@@ -35,10 +31,24 @@ export class Tarefa {
 
     inserir(){
         let lista = this.lista;
-        let removeTaskBtn = document.querySelector('#removeTaskBtn'+this._numero);
-        
         lista.appendChild(this.criaElemento());
         Tarefa.numero++;
+        let removeTaskBtn = document.getElementById('removeTaskBtn'+this._numero);
         removeTaskBtn.addEventListener('click', this.remover);
+    }
+
+    remover(event){
+        let task = event.path[1];
+        let taskId = task.id;
+        let btnId = event.target.id;
+        let taskIdLastChar = taskId.charAt(taskId.length - 1);
+        let btnIdLastChar = btnId.charAt(btnId.length - 1);
+        let lista = event.path[2];
+
+        if(taskIdLastChar == btnIdLastChar) {
+            lista.removeChild(task);
+            console.log(taskId+' Ok!');
+        }
+
     }
 }
