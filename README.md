@@ -4,9 +4,9 @@
     <p align='center'>Meu projeto de estudo. Um app de lista de tarefas em Js.</p>
 
 <h1 align='center'>
-    <img align='' src='./assets/image (1).png' width='200px'>
-    <img align='' src='./assets/image (2).png' width='300px'>
-    <img align='' src='./assets/image (4).png' width='500px'>
+    <img align='' src='./assets/captura_mobile.png' width='200px'>
+    <img align='' src='./assets/captura_tablet.png' width='300px'>
+    <img align='' src='./assets/captura_desktop.png' width='500px'>
 </h1>
 
 ## 📜 Sobre
