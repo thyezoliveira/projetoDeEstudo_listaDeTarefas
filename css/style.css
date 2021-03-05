@@ -20,7 +20,7 @@ header {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
-    padding: 20px;
+    padding: 5px;
 }
 
 .logo {
@@ -106,6 +106,7 @@ main {
     margin: 2px 15px;
     width: auto;
     transition: 200ms;
+    height: 32px;
 }
 
 .taskCheckbox {
@@ -139,6 +140,7 @@ main {
     width: 90%;
     margin-left: 8px;
     cursor: pointer;
+    font-size: 0.8em;
 }
 
 .taskChecked {
@@ -149,8 +151,10 @@ main {
     background-color: rgb(220, 134, 134);
     color: rgb(220, 2, 2);
     font-weight: bold;
-    border-radius: 4px;
-    padding: 2px 8px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    margin-right: 2px;
 }
 
 .block {

@@ -17,7 +17,7 @@ export class Tarefa {
             <input type='checkbox' id='task${this._numero}Checkbox' class='taskCheckbox'/>
             <label for='task${this._numero}Checkbox'>${this._conteudo}</label>
             <button id='removeTaskBtn${this._numero}' class='removeTaskBtn'>
-                Remover
+                X
             </butto>
         `
     }
