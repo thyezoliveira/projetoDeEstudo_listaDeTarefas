@@ -14,7 +14,7 @@ export class Tarefa {
 
     template(){
         return `
-            ${this._conteudo}
+            <span>${this._conteudo}</span>
             <button id='removeTaskBtn${this._numero}' class='removeTaskBtn'>
                 Remover
             </butto>

@@ -41,8 +41,16 @@ header {
     font-size: larger;
 }
 
+main {
+    height: fit-content;
+}
 
-.createTaskHolder{
+#createTaskHolder1{
+    display: none;
+}
+
+
+#createTaskHolder2{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,9 +106,9 @@ header {
     width: auto;
 }
 
-.task p {
+.task span {
     overflow-wrap: break-word;
-    width: 50%;
+    width: 90%;
     margin-left: 8px;
 }
 
@@ -113,12 +121,17 @@ header {
     margin-right: 4px;
 }
 
+.block {
+    height: 70px;
+}
+
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
     height: 64px;
+    position: fixed;
     bottom: 0px;
     color: white;
     background-color: rgb(87, 153, 189);
@@ -143,7 +156,13 @@ footer > a:visited {
 }
 
 /*Responsividade*/
-@media screen and (min-width: 768px) {
+@media (min-width: 768px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .logoTodo-App {
         display: flex;
         flex-direction: row;
@@ -155,25 +174,34 @@ footer > a:visited {
         margin-left: 10px;
     }
 
-    .createTaskHolder {
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
+    #createTaskHolder1{
+        display: flex;
+        margin-bottom: 20px;
+        width: 70%;
+        align-items: baseline;
+    }
+
+    #createTaskHolder2 {
+        display: none;
     }
 
     .inputTask {
-        height: 100%;
-        padding: 3px;
+        display: flex;
+        height: 30px;
+        width: 70%;
+        padding: 5px;
         border-radius: 0px;
         border-bottom-left-radius: 8px;
         border-top-left-radius: 8px;
-        border: solid 2px rgb(117, 170, 117);
+        border: solid 1px rgb(117, 170, 117);
     }
 
     .inputTaskBtn {
-        height: 100%;
-        padding: 5px;
-        margin-top: 0px;
+        display: flex;
+        height: 40px;
+        width: 30%;
+        padding: 8px;
+        margin-right: 8px;
         background-color: rgb(117, 170, 117);
         font-weight: bold;
         color: darkgreen;
@@ -184,15 +212,67 @@ footer > a:visited {
     }
 
     .taskHolder {
-        align-items: flex-start;
-    }
-
-    .taskHolder > h2 {
-        padding: 20px;
+        justify-content: center;
+        width: 100vw;
     }
 
     .tasks {
-        justify-content: flex-start;
-        width: 80%;
+        flex: auto;
+        align-content: flex-start;
+        width: 100%;
     }
+}
+
+@media (min-width: 1024px) {
+    header {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .logoTodo-App {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        flex: 1 2 auto;
+        padding: 10px;
+        margin-bottom: 0;
+    }
+
+    .logo {
+        display: none;
+        width: 15px;
+    }
+
+    #createTaskHolder1{
+        flex: 2 1 auto;
+        margin-bottom: 0px;
+    }
+
+    .inputTask {
+        height: 15px;
+        width: auto;
+        padding: 8px;
+        border-radius: 0px;
+        border-bottom-left-radius: 8px;
+        border-top-left-radius: 8px;
+        border: solid 1px rgb(117, 170, 117);
+    }
+
+    .inputTaskBtn {
+        height: 30px;
+        width: 150px;
+        padding: 8px;
+        align-items: center;
+        background-color: rgb(117, 170, 117);
+        font-weight: bold;
+        color: darkgreen;
+        border-bottom: darkgreen 0px solid;
+        border-radius: 0px;
+        border-bottom-right-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
 }

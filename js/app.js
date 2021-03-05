@@ -10,27 +10,31 @@ Comentário: O app é basicamente funcional.
             Espero que curtam.
 */
 
-const inputTask = document.querySelector(".inputTask");
-const inputTaskBtn = document.querySelector(".inputTaskBtn");
+const inputTask = document.querySelectorAll(".inputTask");
+const inputTaskBtn = document.querySelectorAll(".inputTaskBtn");
 const tasks = document.querySelector(".tasks");
-inputTaskBtn.onclick = insertTask;
 
-inputTask.addEventListener("keypress", function(e){
-    if(e.key == "Enter"){
+inputTask.forEach((campo) => {
+    inputTaskBtn.forEach((btn) => {
+        btn.onclick = insertTask;
+    })
+    function insertTask(){
+        if(campo.value == ''){
+            return;
+        }else{
+            let tarefa = new Tarefa(campo, tasks);
+            tarefa.inserir();
+    
+            campo.value = "";
+            campo.focus();
+        }
+    } 
 
-        //Insere uma nota
-        insertTask();
-    }
-});
-
-function insertTask(){
-    if(inputTask.value == ''){
-        return;
-    }else{
-        let tarefa = new Tarefa(inputTask, tasks);
-        tarefa.inserir();
-
-        inputTask.value = "";
-        inputTask.focus();
-    }
-}
+    campo.addEventListener("keypress", function(e){
+        if(e.key == "Enter"){
+    
+            //Insere uma nota
+            insertTask();
+        }
+    });
+})
