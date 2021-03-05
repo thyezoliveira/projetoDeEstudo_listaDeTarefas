@@ -104,12 +104,23 @@ main {
     padding: 10px;
     margin: 5px 15px;
     width: auto;
+    transition: 500ms;
+}
+
+.taskCheckbox {
+    width: 20px;
+    height: 20px;
+    color: green;
 }
 
 .task span {
     overflow-wrap: break-word;
     width: 90%;
     margin-left: 8px;
+}
+
+.taskChecked {
+    background-color: rgb(94, 204, 103);
 }
 
 .removeTaskBtn {

@@ -14,8 +14,8 @@ export class Tarefa {
 
     template(){
         return `
-            <input type='checkbox' id='task${this._numero}Checkbox' />
-            <span>${this._conteudo}</span>
+            <input type='checkbox' value='task' id='task${this._numero}Checkbox' class='taskCheckbox'/>
+            <label for='task'><span>${this._conteudo}</span></label>
             <button id='removeTaskBtn${this._numero}' class='removeTaskBtn'>
                 Remover
             </butto>
@@ -36,6 +36,8 @@ export class Tarefa {
         Tarefa.numero++;
         let removeTaskBtn = document.getElementById('removeTaskBtn'+this._numero);
         removeTaskBtn.addEventListener('click', this.remover);
+        let taskCheckbox = document.getElementById('task'+this._numero+'Checkbox');
+        taskCheckbox.addEventListener('click', this.concluir);
     }
 
     remover(event){
@@ -51,5 +53,17 @@ export class Tarefa {
             console.log(taskId+' Ok!');
         }
 
+    }
+
+    concluir(event) {
+        let checkbox = event.target;
+        let checkboxChecked = checkbox.checked;
+        let task = event.path[1];
+
+        if(checkboxChecked == true) {
+            task.classList.add('taskChecked');
+        } else {
+            task.classList.remove('taskChecked');
+        }
     }
 }
