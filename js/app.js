@@ -15,13 +15,18 @@ const inputTaskBtn = document.querySelectorAll(".inputTaskBtn");
 const tasks = document.querySelector(".tasks");
 
 inputTask.forEach((campo) => {
-    inputTaskBtn.forEach((btn) => {
-        btn.onclick = insertTask;
-    })
+
+    let index = (campo.parentElement.id.charAt(campo.parentElement.id.length - 1)) - 1;
+    let addButtons = inputTaskBtn[index];
+    addButtons.onclick = insertTask;
+
     function insertTask(){
+
         if(campo.value == ''){
+
             return;
-        }else{
+        } else {
+
             let tarefa = new Tarefa(campo, tasks);
             tarefa.inserir();
     
@@ -31,9 +36,9 @@ inputTask.forEach((campo) => {
     } 
 
     campo.addEventListener("keypress", function(e){
+
         if(e.key == "Enter"){
-    
-            //Insere uma nota
+
             insertTask();
         }
     });
