@@ -14,8 +14,8 @@ export class Tarefa {
 
     template(){
         return `
-            <input type='checkbox' value='task' id='task${this._numero}Checkbox' class='taskCheckbox'/>
-            <label for='task'><span>${this._conteudo}</span></label>
+            <input type='checkbox' id='task${this._numero}Checkbox' class='taskCheckbox'/>
+            <label for='task${this._numero}Checkbox'>${this._conteudo}</label>
             <button id='removeTaskBtn${this._numero}' class='removeTaskBtn'>
                 Remover
             </butto>

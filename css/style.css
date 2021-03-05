@@ -101,26 +101,29 @@ main {
     align-items: center;
     background-color: rgb(230, 220, 230);
     border-radius: 8px;
-    padding: 10px;
-    margin: 5px 15px;
+    padding: 0px;
+    margin: 2px 15px;
     width: auto;
-    transition: 500ms;
+    transition: 200ms;
 }
 
 .taskCheckbox {
+    margin-left: 8px;
     width: 20px;
     height: 20px;
-    color: green;
+    background-color: green;
+    cursor: pointer;
 }
 
-.task span {
+.task label {
     overflow-wrap: break-word;
     width: 90%;
     margin-left: 8px;
+    cursor: pointer;
 }
 
 .taskChecked {
-    background-color: rgb(94, 204, 103);
+    background-color: rgb(151, 220, 157);
 }
 
 .removeTaskBtn {
@@ -128,8 +131,7 @@ main {
     color: rgb(220, 2, 2);
     font-weight: bold;
     border-radius: 4px;
-    padding: 4px;
-    margin-right: 4px;
+    padding: 2px 8px;
 }
 
 .block {
